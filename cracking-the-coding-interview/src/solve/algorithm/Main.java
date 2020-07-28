@@ -1,10 +1,10 @@
 package solve.algorithm;
 
-import solve.algorithm.arrayandstring.Problem1;
+import solve.algorithm.arrayandstring.Chapter1Problem2;
 
 public class Main {
 
     public static void main(String[] args) {
-        Problem1.test();
+        Chapter1Problem2.test();
     }
 }

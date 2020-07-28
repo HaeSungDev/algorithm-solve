@@ -1,6 +1,5 @@
 package solve.algorithm.arrayandstring;
 
-import solve.algorithm.utils.ConsoleColors;
 import solve.algorithm.utils.Util;
 
 import java.util.HashSet;
@@ -13,8 +12,8 @@ import java.util.Set;
 풀 수 있는 알고리즘을 또한 고민하라.
 
  */
-public class Problem1 {
-    public static boolean solution1(String sentence) {
+public class Chapter1Problem1 {
+    public static boolean checkHasUniqueCharacter1(String sentence) {
         Set<Character> characters = new HashSet<>();
 
         for (int i = 0;i < sentence.length();i++) {
@@ -28,7 +27,7 @@ public class Problem1 {
         return true;
     }
 
-    public static boolean solution2(String sentence) {
+    public static boolean checkHasUniqueCharacter2(String sentence) {
         int bitVector = 0;
 
         for (int i = 0;i < sentence.length();i++) {
@@ -49,14 +48,14 @@ public class Problem1 {
 
         int n = testCases.length;
 
-        Util.printTestTitle("Problem1");
+        Util.printTestTitle("Chapter1Problem1");
         Util.printTestSubTitle("Solution1");
         for (int i = 0;i < n;i++) {
-            Util.printTestResult(i, n, answers[i] == solution1(testCases[i]));
+            Util.printTestResult(i, n, answers[i] == checkHasUniqueCharacter1(testCases[i]));
         }
         Util.printTestSubTitle("Solution2");
         for (int i = 0;i < n;i++) {
-            Util.printTestResult(i, n, answers[i] == solution2(testCases[i]));
+            Util.printTestResult(i, n, answers[i] == checkHasUniqueCharacter2(testCases[i]));
         }
     }
 }
