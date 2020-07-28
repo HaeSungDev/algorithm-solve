@@ -1,5 +1,8 @@
 package solve.algorithm.arrayandstring;
 
+import solve.algorithm.utils.ConsoleColors;
+import solve.algorithm.utils.Util;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,22 +28,35 @@ public class Problem1 {
         return true;
     }
 
+    public static boolean solution2(String sentence) {
+        int bitVector = 0;
+
+        for (int i = 0;i < sentence.length();i++) {
+            int positionBit = 1 << sentence.charAt(i);
+            if ((positionBit & bitVector) > 0) {
+                return false;
+            }
+
+            bitVector |= positionBit;
+        }
+
+        return true;
+    }
+
     public static void test() {
         String[] testCases = { "orange", "aabcd", "abcdd", "apple", "salt" };
         boolean[] answers = { true, false, false, false, true };
 
         int n = testCases.length;
 
-        System.out.println("===== Solution1 =====");
+        Util.printTestTitle("Problem1");
+        Util.printTestSubTitle("Solution1");
         for (int i = 0;i < n;i++) {
-            String result = answers[i] == solution1(testCases[i]) ? "Success" : "Fail";
-            System.out.println((i+1) + " / " + n + ": " + result);
+            Util.printTestResult(i, n, answers[i] == solution1(testCases[i]));
         }
-
-        System.out.println("===== Solution2 =====");
+        Util.printTestSubTitle("Solution2");
         for (int i = 0;i < n;i++) {
-            String result = answers[i] == solution1(testCases[i]) ? "Success" : "Fail";
-            System.out.println((i+1) + " / " + n + ": " + result);
+            Util.printTestResult(i, n, answers[i] == solution2(testCases[i]));
         }
     }
 }
